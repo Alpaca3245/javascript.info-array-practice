@@ -56,8 +56,50 @@ console.log(shuffle(shuffleArr));
 
 console.log("Get average age\n-------------------------\n")
 
+let mint = { name: "Mint", age: 25 };
+let ina = { name: "Ina", age: 30 };
+let sakura = { name: "Sakura", age: 29 };
+
+let averageUser = [ mint, ina, sakura ];
+
+averageAge = averageUser.reduce((sum, user) => sum + user.age, 0) / 3;
+console.log(averageAge);
+
+console.log("Filter unique array members\n-------------------------\n")
+
+function unique(arr) {
+    let newArr = [];
+
+    arr.forEach((item) => {
+        if (!newArr.includes(item)){
+            newArr.push(item);
+        }
+    });
+    return newArr;
+  }
+  
+  let strings = ["Hare", "Krishna", "Hare", "Krishna",
+    "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+  
+  console.log(unique(strings)); // Hare, Krishna, :-O
 
 
 
+  console.log("Create keyed object from array\n-------------------------\n")
 
+  let usersToKey = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+  ];
+  
+  function groupById(users) {
+    keyedUsers = users.reduce((obj, user) => {
+        obj[user.id] = obj;
+        return obj;
+    });
+    return keyedUsers;
+  }
 
+  let usersById = groupById(usersToKey);
+  console.log(usersById);
